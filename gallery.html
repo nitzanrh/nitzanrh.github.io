@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Photos | Nitzan Ravhon</title>
+    <!-- Loading main css file -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/ie-support/html5.js"></script>
+    <script src="js/ie-support/respond.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+
+
+</head>
+
+<body>
+
+<div id="site-content">
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-navigation">
+                <button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
+                <ul class="menu">
+                    <li class="menu-item"><a href="index.html">ראשי</a></li>
+                    <li class="menu-item current-menu-item"><a href="gallery.html">תמונות</a></li>
+                    <li class="menu-item"><a href="videos.html">סרטונים</a></li>
+                    <li class="menu-item"><a href="bio.html">ביוגרפיה</a></li>
+                    <li class="menu-item"><a href="tuition.html">שיעורים</a></li>
+                    <li class="menu-item"><a href="contact.html">צור קשר</a></li>
+                </ul> <!-- .menu -->
+            </nav> <!-- .main-navigation -->
+            <div class="mobile-menu"></div>
+        </div>
+    </header> <!-- .site-header -->
+
+    <div id="links">
+        <a href="images/2.jpg"> </a>
+        <a href="images/1.jpg"> </a>
+        <a href="images/redbg.jpg"> </a>
+        <a href="images/mobilebg.jpg"> </a>
+        <a href="images/3.jpg"> </a>
+
+    </div>
+
+    <main class="main-content">
+        <div class="fullwidth-block inner-content">
+            <div class="container">
+                <div class="content fullwidth">
+                    <h2 class="entry-title">תמונות</h2>
+                    <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+                    <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+                        <div class="slides"></div>
+                        <h3 class="title"></h3>
+                        <a class="prev">‹</a>
+                        <a class="next">›</a>
+                        <a class="play-pause"></a>
+                        <ol class="indicator"></ol>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .testimonial-section -->
+
+
+    </main> <!-- .main-content -->
+
+</div> <!-- #site-content -->
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/app.js"></script>
+
+<!-- The Gallery js -->
+<script src="js/blueimp-gallery.min.js"></script>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+
+</script>
+
+<script>
+blueimp.Gallery(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+        container: '#blueimp-gallery-carousel',
+        carousel: true
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
