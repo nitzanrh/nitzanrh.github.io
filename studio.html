@@ -40,14 +40,14 @@
                     <h3 class="homepage-subtitle mobile"> מתופף ומורה לתופים</h3>
                 </div>
                 <button type="button" class="toggle-menu">
-                <img class="menu-icon" src="https://www.nitzanravhon.com/images/menu.png">
+                    <img class="menu-icon" src="https://www.nitzanravhon.com/images/menu.png">
                 </button>
                 <ul class="menu">
                     <li class="menu-item"><a href="index.html">ראשי</a></li>
-                    <li class="menu-item current-menu-item"><a href="gallery.html">תמונות וסרטונים</a></li>
+                    <li class="menu-item"><a href="gallery.html">תמונות וסרטונים</a></li>
                     <li class="menu-item"><a href="bio.html">ביוגרפיה</a></li>
                     <li class="menu-item"><a href="tuition.html">תרגילים וצ׳ארטים</a></li>
-                    <li class="menu-item"><a href="studio.html">הסטודיו שלי</a></li>
+                    <li class="menu-item current-menu-item"><a href="studio.html">הסטודיו שלי</a></li>
                 </ul> <!-- .menu -->
             </nav> <!-- .main-navigation -->
             <div class="mobile-menu"></div>
@@ -55,37 +55,62 @@
     </header> <!-- .site-header -->
 
     <div id="links">
-        <a href="images/2.jpg"> </a>
-        <a href="images/1.jpg"> </a>
-        <a href="images/redbg.jpg"> </a>
-        <a href="images/mobilebg.jpg"> </a>
-        <a href="images/3.jpg"> </a>
-
+        <a href="images/studioPics/1.jpg"> </a>
+        <a href="images/studioPics/2.jpg"> </a>
+        <a href="images/studioPics/3.jpg"> </a>
+        <a href="images/studioPics/4.jpg"> </a>
+        <a href="images/studioPics/5.jpg"> </a>
+        <a href="images/studioPics/6.jpg"> </a>
+        <a href="images/studioPics/7.jpg"> </a>
     </div>
 
     <main class="main-content">
         <div class="fullwidth-block inner-content">
             <div class="container">
                 <div class="content fullwidth">
-                    <div class="row">
-                        <div class="col-md-7">
+                    <div class="row studio-gallery-row">
+                        <h2 class="entry-title">הסטודיו שלי</h2>
+
+                        <div class="col-md-7 studio-col">
                             <div class="content">
-                                <h2 class="entry-title">תמונות</h2>
-                                <div id="blueimp-gallery-carousel"
-                                     class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
-                                    <div class="slides"></div>
-                                    <h3 class="title"></h3>
-                                    <a class="prev">‹</a>
-                                    <a class="next">›</a>
-                                    <a class="play-pause"></a>
-                                    <ol class="indicator"></ol>
+                                <div class="content">
+                                    <div class="gallery-mobile">
+                                        <div id="blueimp-gallery-carousel-mobile"
+                                             class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+                                            <div class="slides"></div>
+                                            <h3 class="title"></h3>
+                                            <a class="prev">‹</a>
+                                            <a class="next">›</a>
+                                            <a class="play-pause"></a>
+                                            <ol class="indicator"></ol>
+                                        </div>
+                                    </div>
+
+                                    <p class="bio-text leading">
+                                        ממוקם במושב שילת (צמוד למודיעין), הסטודיו שלי מאובזר בציוד ברמה הגבוהה ביותר.
+                                        <br><br>
+                                        בסטודיו ישנן שתי מערכות תופים: Tama Silverstar 100% Birch עם
+                                        מצילות של חברת Sabian ומערכת Mapex עם מצילות של חברת Istanbul Agop.
+                                        <br><br>
+                                        השיעורים מתנהלים באווירה כיפית ונעימה, ומותאמים לרמת התלמידים. נלמד נושאים רבים ומגוונים, החל מטכניקה
+                                        בסיסית וקריאת תווים, ועד לשימוש בדאבל פדאל ופוליריטמיקה לינארית. כמובן שנלמד גם שירים
+                                        ממגוון סגנונות המותאמים ליכולת התלמידים ובחירתם האישית.
+                                        <br><br>
+                                        השיעורים מתאימים לכל הרמות ולכל הגילאים!
+                                        <br><br>
+
+                                        לקביעת שיעור היכרות, אתם מוזמנים ליצור קשר בוואטסאפ או במייל.
+                                        <br>
+                                    </p>
+                                    <a href="tel:0545524293" class="buttonLesson">או פשוט להתקשר :)</a>
+
                                 </div>
+
                             </div>
                         </div>
-                        <div class="col-md-7 col-left">
-                            <h2 class="entry-title">סרטונים</h2>
-                            <div id="blueimp-video-carousel"
-                                 class="blueimp-gallery blueimp-gallery-controls blueimp-gallery-carousel ">
+                        <div class="col-md-7 col-left studio-remove">
+                            <div id="blueimp-gallery-carousel"
+                                 class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
                                 <div class="slides"></div>
                                 <h3 class="title"></h3>
                                 <a class="prev">‹</a>
@@ -102,7 +127,7 @@
 
     </main> <!-- .main-content -->
 
-        <div class="footer">
+    <div class="footer">
         <div class="contactButtons">
             <a href="tel:0545524293" class="buttonContact">התקשרו אליי</a>
             <a href="https://wa.me/+972545524293/?text=urlencodedtext" class="buttonContact">אפשר גם וואטספ</a>
@@ -137,16 +162,15 @@
             <i class="fa fa-instagram"></i>
         </a>
         <a href="https://www.youtube.com/channel/UCw0K0jWO-Fr5Gp8SWZljdmw" target="_blank"
-               rel="noopener noreferrer" class="toolbar-icons">
+           rel="noopener noreferrer" class="toolbar-icons">
             <i class="fa fa-youtube"></i>
         </a>
-        <a href="https://www.facebook.com/ravhon.nitzan" target="_blank" rel="noopener noreferrer" class="toolbar-icons">
+        <a href="https://www.facebook.com/ravhon.nitzan" target="_blank" rel="noopener noreferrer"
+           class="toolbar-icons">
             <i class="fa fa-facebook"></i>
         </a>
 
     </div>
-
-
 </div> <!-- #site-content -->
 
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -166,31 +190,6 @@
 
 
 <script>
-document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-
-<script>
 blueimp.Gallery(
     document.getElementById('links').getElementsByTagName('a'),
     {
@@ -199,15 +198,13 @@ blueimp.Gallery(
     }
 );
 
-
-
-
-
-
-
-
-
-
+blueimp.Gallery(
+    document.getElementById('links').getElementsByTagName('a'),
+    {
+        container: '#blueimp-gallery-carousel-mobile',
+        carousel: true
+    }
+);
 
 
 
