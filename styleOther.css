@@ -294,7 +294,7 @@ margin-bottom:8vh;
     padding-right: 18vw;
     padding-top: 3.7vh;
     }
-.mobile{display:block;}
+.mobile{display:block;color:#333333;}
 .desktop{display:none;}
 .toolbar-icons
 {float: right;
