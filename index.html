@@ -14,6 +14,8 @@
 
 
 
+
+
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,15 +49,51 @@
     <!-- Loading main css file -->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/google-places.css">
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.css">
+
 
 </head>
 
 <body class="header-collapse">
 
+<div id="links">
+    <a href="images/2.jpg"> </a>
+    <a href="images/3.jpg"> </a>
+    <a href="images/3.jpg"> </a>
+</div>
+
 
 <div id="site-content">
+
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-navigation" id="main-navigation">
+                <div class="content">
+                    <h2 class="welcome desktop">
+                        ניצן רב-הון
+                        <span class="header-subtitle ">| מתופף ומורה לתופים </span>
+                    </h2>
+                    <h2 class="welcome mobile">ניצן רב-הון</h2>
+                    <h3 class="homepage-subtitle mobile"> מתופף ומורה לתופים</h3>
+                </div>
+                <button type="button" class="toggle-menu">
+                    <img class="menu-icon" alt="מורה לתופים מודיעין - שיעורי תופים מודיעין - ניצן רבהון"
+                         src="https://www.nitzanravhon.com/images/menu.png">
+                </button>
+                <ul class="menu">
+                    <li class="menu-item current-menu-item"><a href="index.html" title="ראשי">ראשי</a></li>
+                    <li class="menu-item"><a href="gallery.html" title="תמונות וסרטונים">תמונות וסרטונים</a></li>
+                    <li class="menu-item"><a href="bio.html" title="ביוגרפיה">ביוגרפיה</a></li>
+                    <li class="menu-item"><a href="tuition.html" title="תרגילים וצ׳ארטים">תרגילים וצ׳ארטים</a></li>
+                    <li class="menu-item"><a href="studio.html" title="הסטודיו שלי">הסטודיו שלי</a></li>
+                </ul> <!-- .menu -->
+            </nav> <!-- .main-navigation -->
+            <div class="mobile-menu"></div>
+        </div>
+    </header> <!-- .site-header -->
+
 
     <main class="main-content">
         <div class="fullwidth-block inner-content">
@@ -99,43 +137,37 @@
 
                     </div>
                     <div class="col-md-7 col-left">
-                        <!--<div class="videoWrapper">-->
-                        <!--<iframe src="https://www.youtube.com/embed/x6hPCa7x14U"></iframe>-->
-                        <!--</div>-->
+                        <!-- Slideshow container -->
+                        <h3>מה אומרים התלמידים:</h3>
+                        <div class="slideshow-container">
+                            <div id="google-reviews"></div>
+                            <!-- Next/prev buttons -->
+
+                            <div class="dot-container">
+                                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                                <span class="dot" onclick="currentSlide(4)"></span>
+                                <span class="dot" onclick="currentSlide(5)"></span>
+                                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            </div>
+                        <a class="reviews-more" target="_blank" href="https://www.google.com/maps/place/מורה+לתופים+-+ניצן+רבהון%E2%80%AD/@31.921861,35.0173198,17z/data=!3m1!4b1!4m7!3m6!1s0x151d4c7f05eaf41f:0x509b428b8f02d7da!8m2!3d31.921861!4d35.0151311!9m1!1b1">
+                            לקריאת כל הביקורות, לחץ כאן</a>
+
+
+
+                        </div>
+
+                        <!-- Dots/bullets/indicators -->
                     </div>
+
+
                 </div>
             </div>
         </div>
 
     </main> <!-- .main-content -->
-
-    <header class="site-header">
-        <div class="container">
-            <nav class="main-navigation">
-                <div class="content">
-                    <h2 class="welcome desktop">
-                        ניצן רב-הון
-                        <span class="header-subtitle ">| מתופף ומורה לתופים </span>
-                    </h2>
-                    <h2 class="welcome mobile">ניצן רב-הון</h2>
-                    <h3 class="homepage-subtitle mobile"> מתופף ומורה לתופים</h3>
-                </div>
-                <button type="button" class="toggle-menu">
-                    <img class="menu-icon" alt="מורה לתופים מודיעין - שיעורי תופים מודיעין - ניצן רבהון"
-                         src="https://www.nitzanravhon.com/images/menu.png">
-                </button>
-                <ul class="menu">
-                    <li class="menu-item current-menu-item"><a href="index.html" title="ראשי">ראשי</a></li>
-                    <li class="menu-item"><a href="gallery.html" title="תמונות וסרטונים">תמונות וסרטונים</a></li>
-                    <li class="menu-item"><a href="bio.html" title="ביוגרפיה">ביוגרפיה</a></li>
-                    <li class="menu-item"><a href="tuition.html" title="תרגילים וצ׳ארטים">תרגילים וצ׳ארטים</a></li>
-                    <li class="menu-item"><a href="studio.html" title="הסטודיו שלי">הסטודיו שלי</a></li>
-                </ul> <!-- .menu -->
-            </nav> <!-- .main-navigation -->
-            <div class="mobile-menu"></div>
-        </div>
-    </header> <!-- .site-header -->
-
 
     <div class="footer">
         <div class="contactButtons">
@@ -191,6 +223,24 @@
 <script src="js/plugins.js"></script>
 <script src="js/app.js"></script>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/google-places.js "></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDO4-EH1PiTUOtuDWOZ21t7pxBpMuDgsik"></script>
+
+<script> 
+   jQuery(document).ready(function() { 
+      $("#google-reviews").googlePlaces({ 
+         placeId: 'ChIJH_TqBX9MHRUR2tcCj4tCm1A', 
+         render: ['reviews'], 
+         min_rating: 5, 
+         max_rows: 0 
+       }); 
+   }); 
+
+
+</script>
+
 <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
 <script type="application/ld+json">
 {
@@ -210,9 +260,59 @@
   "url" : "https://www.nitzanravhon.com/",
   "image" : "https://www.nitzanravhon.com/images/redbg.jpg",
   "priceRange" : "100"
-
 }
 
+
+
+
+
+</script>
+
+<script>
+
+
+var slideIndex = 3;
+var first = true;
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("review-item");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.visibility = "hidden";
+        slides[i].style.opacity = 0;
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.visibility = "visible";
+    slides[slideIndex-1].style.opacity = 1;
+    dots[slideIndex-1].className += " active";
+}
+
+var dots = document.getElementsByClassName("dot");
+if (first) {
+    console.log('condi')
+    dots[2].className += " active";
+    first = false;
+}
 </script>
 
 </body>
