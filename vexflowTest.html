@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="theme-color" content="#fafafa">
+
+</head>
+
+<body>
+
+<!-- Add your site or application content here -->
+<button onclick="drawMeasures()">DRAW</button>
+<div id="boo"></div>
+
+<script src="js/vexflow-min.js"></script>
+<script>
+  // HOWTO get absolute XPOS of note (do after formatting)
+  // console.log(notes[i].getAbsoluteX());
+
+  function drawMeasures() {
+
+    const VF = Vex.Flow;
+    const CLEFWIDTH = 50
+    const TIMESIGNATUREWIDTH = 50
+
+    let div = document.getElementById("boo")
+    let renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+    let formatter = new VF.Formatter();
+
+    let context = renderer.getContext();
+    // context.scale(2,2)
+
+    let measures = 32
+    let previousMeasureWidth = 0;
+    let previousMeasureHeight = 0;
+    const screenWidth = div.offsetWidth
+
+    for (let i = 0; i < measures; i++) {
+      let notesTest = []
+
+      if (i % 3 === 0) {
+        for (let i = 1; i <= 16; i++) {
+          notesTest.push(new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "16"}))
+        }
+      } else {
+        for (let i = 1; i <= 8; i++) {
+          notesTest.push(new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "8"}))
+        }
+      }
+
+      let voice = new VF.Voice({num_beats: 4, beat_value: 4});
+      voice.addTickables(notesTest);
+      formatter.joinVoices([voice]).format([voice]);
+      let width = formatter.getMinTotalWidth() - previousMeasureWidth;
+
+      let stave = new VF.Stave(previousMeasureWidth, previousMeasureHeight, width + previousMeasureWidth);
+      previousMeasureWidth += stave.width;
+      if (previousMeasureWidth > screenWidth) {
+        previousMeasureHeight += stave.height;
+        width = formatter.getMinTotalWidth();
+        stave = new VF.Stave(0, previousMeasureHeight, width);
+        previousMeasureWidth = width
+      }
+
+      //resize renderer to currnt stave height + previous
+      renderer.resize(div.offsetWidth, 2 * stave.height + previousMeasureHeight);
+
+      stave.setContext(context).draw();
+      let beams = VF.Beam.generateBeams(notesTest);
+      VF.Formatter.FormatAndDraw(context, stave, notesTest);
+
+      beams.forEach(function (b) {
+        b.setContext(context).draw()
+      })
+    }
+  }
+
+
+</script>
+
+</body>
+
+</html>
