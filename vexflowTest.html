@@ -2,92 +2,166 @@
 <html class="no-js" lang="">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
 
-  <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#fafafa">
 
 </head>
 
 <body>
 
 <!-- Add your site or application content here -->
-<button onclick="drawMeasures()">DRAW</button>
+<button onclick="createNotes()">CREATE NOTES</button>
+<button onclick="createMeasuresWidth()">CREATE MEASURES WIDTH</button>
+<button onclick="runAllExceptNotes()">RUN ALL EXCEPT NOTES AND MEASURES WIDTH</button>
+<button onclick="createStaves()">CREATE STAVES</button>
+<button onclick="createBeams()">CREATE BEAMS</button>
+<button onclick="drawStaves()">DRAW STAVES</button>
+<button onclick="drawNotes()">DRAW NOTES</button>
+<button onclick="drawBeams()">DRAW BEAMS</button>
+<button onclick="scaleZoom()">SCALE</button>
+<button onclick="resetAll()">CLEAR</button>
+
 <div id="boo"></div>
 
 <script src="js/vexflow-min.js"></script>
 <script>
-  // HOWTO get absolute XPOS of note (do after formatting)
-  // console.log(notes[i].getAbsoluteX());
-
-  function drawMeasures() {
-
+    // HOWTO get absolute XPOS of note (do after formatting)
+    // console.log(notes[i].getAbsoluteX());
     const VF = Vex.Flow;
-    const CLEFWIDTH = 50
-    const TIMESIGNATUREWIDTH = 50
-
     let div = document.getElementById("boo")
     let renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
     let formatter = new VF.Formatter();
-
-    let context = renderer.getContext();
-    // context.scale(2,2)
-
-    let measures = 32
-    let previousMeasureWidth = 0;
-    let previousMeasureHeight = 0;
+    div.style.width = "100%";
+    const TIMESIGNATUREWIDTH = 50
     const screenWidth = div.offsetWidth
 
-    for (let i = 0; i < measures; i++) {
-      let notesTest = []
+    let context = renderer.getContext();
+    let scale = 1
+    context.scale(scale, scale);
+    let staveHeight = 0;
+    let measures = 30
+    let notes = []
+    let staves = []
+    let beams = []
+    let measuresWidth = []
+    let systems = 1
 
-      if (i % 3 === 0) {
-        for (let i = 1; i <= 16; i++) {
-          notesTest.push(new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "16"}))
+    function resetAll() {
+        formatter = new VF.Formatter();
+        staves = []
+        beams = []
+        systems = 1
+        let svgContext = context.svg
+        while (svgContext.lastChild) {
+            svgContext.removeChild(svgContext.lastChild);
         }
-      } else {
-        for (let i = 1; i <= 8; i++) {
-          notesTest.push(new VF.StaveNote({clef: "treble", keys: ["c/4"], duration: "8"}))
-        }
-      }
-
-      let voice = new VF.Voice({num_beats: 4, beat_value: 4});
-      voice.addTickables(notesTest);
-      formatter.joinVoices([voice]).format([voice]);
-      let width = formatter.getMinTotalWidth() - previousMeasureWidth;
-
-      let stave = new VF.Stave(previousMeasureWidth, previousMeasureHeight, width + previousMeasureWidth);
-      previousMeasureWidth += stave.width;
-      if (previousMeasureWidth > screenWidth) {
-        previousMeasureHeight += stave.height;
-        width = formatter.getMinTotalWidth();
-        stave = new VF.Stave(0, previousMeasureHeight, width);
-        previousMeasureWidth = width
-      }
-
-      //resize renderer to currnt stave height + previous
-      renderer.resize(div.offsetWidth, 2 * stave.height + previousMeasureHeight);
-
-      stave.setContext(context).draw();
-      let beams = VF.Beam.generateBeams(notesTest);
-      VF.Formatter.FormatAndDraw(context, stave, notesTest);
-
-      beams.forEach(function (b) {
-        b.setContext(context).draw()
-      })
     }
-  }
+
+    function createNotes() {
+        for (let i = 0; i < measures; i++) {
+            let phraseNotes = []
+
+            if (i % 3 === 0) {
+                for (let i = 1; i <= 16; i++) {
+                    const note16 = new VF.StaveNote({keys: ["c/4"], duration: "16"})
+                    phraseNotes.push(note16)
+                }
+            } else {
+                for (let i = 1; i <= 8; i++) {
+                    const note8 = new VF.StaveNote({keys: ["c/4"], duration: "8"})
+                    phraseNotes.push(note8)
+                }
+            }
+            notes.push(phraseNotes)
+        }
+    }
+
+    function createMeasuresWidth() {
+        for (let i = 0; i < measures; i++) {
+            let voice = new VF.Voice({num_beats: 4, beat_value: 4});
+            voice.addTickables(notes[i]);
+            formatter.joinVoices([voice]).format([voice]);
+            let width = formatter.getMinTotalWidth();
+            measuresWidth.push(width)
+        }
+    }
+
+    function createStaves() {
+        let previousMeasureWidth = 0;
+        let currentSystemHeight = 0;
+
+        for (let i = 0; i < measures; i++) {
+            let stave = new VF.Stave(previousMeasureWidth, currentSystemHeight, measuresWidth[i]);
+            if (staveHeight === 0) {
+                staveHeight = stave.height
+            }
+
+            previousMeasureWidth += measuresWidth[i];
+            if (previousMeasureWidth * scale > screenWidth) { // aka new system
+                systems += 1
+                currentSystemHeight += stave.height;
+                stave = new VF.Stave(0, currentSystemHeight, measuresWidth[i]);
+                previousMeasureWidth = measuresWidth[i]
+            }
+            staves.push(stave)
+        }
+    }
+
+    function createBeams() {
+
+        for (let i = 0; i < measures; i++) {
+            beams.push(VF.Beam.generateBeams(notes[i]))
+        }
+    }
+
+    function drawNotes() {
+        for (let i = 0; i < staves.length; i++) {
+            VF.Formatter.FormatAndDraw(context, staves[i], notes[i]);
+        }
+    }
+
+    function drawBeams() {
+        for (let i = 0; i < staves.length; i++) {
+            beams[i].forEach(function (b) {
+                b.setContext(context).draw()
+            })
+        }
+    }
+
+    function scaleZoom() {
+        resetAll()
+
+        scale = 2;
+        context.scale(scale, scale);
+
+        runAllExceptNotes()
+    }
+
+    function drawStaves() {
+        console.log(systems)
+        renderer.resize(div.offsetWidth,  (scale * staveHeight) * systems + (scale * staveHeight));
+        for (let i = 0; i < staves.length; i++) {
+            staves[i].setContext(context).draw()
+        }
+    }
+
+    function runAllExceptNotes() {
+        createStaves()
+        createBeams()
+        drawStaves()
+        drawNotes()
+        drawBeams()
+    }
 
 
 </script>
