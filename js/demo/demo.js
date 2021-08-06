@@ -40,23 +40,7 @@ $(function () {
         poster: 'https://img.youtube.com/vi/nJWk5YcZUHI/maxresdefault.jpg'
     },
 
-
-    {
-        title: 'Live w/ Meridian Fall at Surya, London 2016',
-        href: 'https://www.youtube.com/watch?v=_Pj1AjzEH-Q',
-        type: 'text/html',
-        youtube: '_Pj1AjzEH-Q',
-        poster: 'https://img.youtube.com/vi/_Pj1AjzEH-Q/maxresdefault.jpg'
-    },
-
-    {
-        title: 'Assaf Avidan - Her Lies - Drum Cover by Nitzan Ravhon',
-        href: 'https://www.youtube.com/watch?v=qJOA5XOJrqU',
-        type: 'text/html',
-        youtube: 'qJOA5XOJrqU',
-        poster: 'https://img.youtube.com/vi/qJOA5XOJrqU/maxresdefault.jpg'
-    },
-  ],
+      ],
 
    {
     container: '#blueimp-video-carousel',
