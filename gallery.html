@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96034830-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96034830-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-96034830-2');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-96034830-2');
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <meta name="description" content="מורה לתופים מודיעין - שיעורי תופים מודיעין - ניצן רבהון">
-    <meta name="keywords" content="מורה לתופים מודיעין,שיעורי תופים מודיעין,תופים,שיעורים,מודיעין,ניצן,רבהון,ניצן רבהון">
+    <meta name="keywords"
+          content="מורה לתופים מודיעין,שיעורי תופים מודיעין,תופים,שיעורים,מודיעין,ניצן,רבהון,ניצן רבהון">
     <meta name="author" content="ניצן רבהון">
 
 
@@ -54,14 +59,16 @@
                     <h1 class="homepage-subtitle mobile"> מתופף ומורה לתופים</h1>
                 </div>
                 <button type="button" class="toggle-menu">
-                <img class="menu-icon" src="https://www.nitzanravhon.com/images/menu.png">
+                    <img class="menu-icon" src="https://www.nitzanravhon.com/images/menu.png">
                 </button>
                 <ul class="menu">
                     <li class="menu-item"><a href="index.html">ראשי</a></li>
                     <li class="menu-item current-menu-item"><a href="gallery.html">תמונות וסרטונים</a></li>
                     <li class="menu-item"><a href="bio.html">ביוגרפיה</a></li>
-                    <li class="menu-item"><a href="https://www.drumsheetmusicstore.com" target="_blank" title="צ׳ארטים">צ׳ארטים</a></li>
+                    <li class="menu-item"><a href="https://www.drumsheetmusicstore.com" target="_blank" title="צ׳ארטים">צ׳ארטים</a>
+                    </li>
                     <li class="menu-item"><a href="studio.html">הסטודיו שלי</a></li>
+                    <li class="menu-item"><a href="coryvo.html" title="קוריבו">קוריבו</a></li>
                 </ul> <!-- .menu -->
             </nav> <!-- .main-navigation -->
             <div class="mobile-menu"></div>
@@ -176,27 +183,26 @@
 
 
 <script>
-document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-};
-
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = {index: link, event: event},
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
 
 
 </script>
 
 <script>
-blueimp.Gallery(
-    document.getElementById('links').getElementsByTagName('a'),
-    {
-        container: '#blueimp-gallery-carousel',
-        carousel: true
-    }
-);
+    blueimp.Gallery(
+        document.getElementById('links').getElementsByTagName('a'),
+        {
+            container: '#blueimp-gallery-carousel',
+            carousel: true
+        }
+    );
 
 
 </script>

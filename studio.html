@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96034830-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96034830-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-96034830-2');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-96034830-2');
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
     <meta name="description" content="מורה לתופים מודיעין - שיעורי תופים מודיעין - ניצן רבהון">
-    <meta name="keywords" content="מורה לתופים מודיעין,שיעורי תופים מודיעין,תופים,שיעורים,מודיעין,ניצן,רבהון,ניצן רבהון">
+    <meta name="keywords"
+          content="מורה לתופים מודיעין,שיעורי תופים מודיעין,תופים,שיעורים,מודיעין,ניצן,רבהון,ניצן רבהון">
     <meta name="author" content="ניצן רבהון">
 
 
@@ -60,8 +65,11 @@
                     <li class="menu-item"><a href="index.html">ראשי</a></li>
                     <li class="menu-item"><a href="gallery.html">תמונות וסרטונים</a></li>
                     <li class="menu-item"><a href="bio.html">ביוגרפיה</a></li>
-                    <li class="menu-item"><a href="https://www.drumsheetmusicstore.com" target="_blank" title="צ׳ארטים">צ׳ארטים</a></li>
+                    <li class="menu-item"><a href="https://www.drumsheetmusicstore.com" target="_blank" title="צ׳ארטים">צ׳ארטים</a>
+                    </li>
                     <li class="menu-item current-menu-item"><a href="studio.html">הסטודיו שלי</a></li>
+                    <li class="menu-item"><a href="coryvo.html" title="קוריבו">קוריבו</a></li>
+
                 </ul> <!-- .menu -->
             </nav> <!-- .main-navigation -->
             <div class="mobile-menu"></div>
@@ -103,11 +111,14 @@
                                     <p class="bio-text leading">
                                         ממוקם במושב שילת (צמוד למודיעין), הסטודיו שלי מאובזר בציוד ברמה הגבוהה ביותר.
                                         <br><br>
-                                        בסטודיו ישנן שתי מערכות תופים: Tama Silverstar 100% Birch עם מצילות של חברת Sabian ומערכת Mapex עם מצילות של Istanbul Agop.
+                                        בסטודיו ישנן שתי מערכות תופים: Tama Silverstar 100% Birch עם מצילות של חברת
+                                        Sabian ומערכת Mapex עם מצילות של Istanbul Agop.
 
                                         <br><br>
-                                        השיעורים מתנהלים באווירה כיפית ונעימה, ומותאמים לרמת התלמידים. נלמד נושאים רבים ומגוונים, החל מטכניקה בסיסית וקריאת תווים, ועד לשימוש בדאבל פדאל ופוליריטמיקה לינארית. כמובן שנלמד גם שירים ממגוון סגנונות המותאמים ליכולת התלמידים ובחירתם האישית.
-
+                                        השיעורים מתנהלים באווירה כיפית ונעימה, ומותאמים לרמת התלמידים. נלמד נושאים רבים
+                                        ומגוונים, החל מטכניקה בסיסית וקריאת תווים, ועד לשימוש בדאבל פדאל ופוליריטמיקה
+                                        לינארית. כמובן שנלמד גם שירים ממגוון סגנונות המותאמים ליכולת התלמידים ובחירתם
+                                        האישית.
 
 
                                         <br><br>
@@ -203,24 +214,21 @@
 
 
 <script>
-blueimp.Gallery(
-    document.getElementById('links').getElementsByTagName('a'),
-    {
-        container: '#blueimp-gallery-carousel',
-        carousel: true
-    }
-);
+    blueimp.Gallery(
+        document.getElementById('links').getElementsByTagName('a'),
+        {
+            container: '#blueimp-gallery-carousel',
+            carousel: true
+        }
+    );
 
-blueimp.Gallery(
-    document.getElementById('links').getElementsByTagName('a'),
-    {
-        container: '#blueimp-gallery-carousel-mobile',
-        carousel: true
-    }
-);
-
-
-
+    blueimp.Gallery(
+        document.getElementById('links').getElementsByTagName('a'),
+        {
+            container: '#blueimp-gallery-carousel-mobile',
+            carousel: true
+        }
+    );
 
 
 </script>
